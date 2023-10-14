@@ -8,6 +8,9 @@ body {
     padding: 0;
     background-color: #0B111F; 
     color: black;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -26,6 +29,7 @@ footer {
 
 
 main {
+    flex: 1; 
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;

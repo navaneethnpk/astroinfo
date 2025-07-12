@@ -22,6 +22,11 @@ let currentMagazine = '';
 let currentImageIndex = 0;
 let currentImages = [];
 
+// Touch/swipe variables
+let touchStartX = 0;
+let touchEndX = 0;
+let isDragging = false;
+
 function openModal(magazineId) {
     currentMagazine = magazineId;
     currentImages = magazineImages[magazineId] || [];
@@ -63,6 +68,67 @@ function changeImage(direction) {
     currentImageSpan.textContent = currentImageIndex + 1;
 }
 
+// Touch event handlers for swipe functionality
+function handleTouchStart(e) {
+    touchStartX = e.changedTouches[0].screenX;
+    isDragging = true;
+}
+
+function handleTouchMove(e) {
+    if (!isDragging) return;
+    e.preventDefault(); // Prevent scrolling
+}
+
+function handleTouchEnd(e) {
+    if (!isDragging) return;
+    
+    touchEndX = e.changedTouches[0].screenX;
+    const swipeDistance = touchStartX - touchEndX;
+    const minSwipeDistance = 50; // Minimum distance to trigger swipe
+    
+    if (Math.abs(swipeDistance) > minSwipeDistance) {
+        if (swipeDistance > 0) {
+            // Swipe left - next image
+            changeImage(1);
+        } else {
+            // Swipe right - previous image
+            changeImage(-1);
+        }
+    }
+    
+    isDragging = false;
+}
+
+// Mouse event handlers for drag functionality on desktop
+function handleMouseDown(e) {
+    touchStartX = e.clientX;
+    isDragging = true;
+    e.preventDefault(); // Prevent text selection
+}
+
+function handleMouseMove(e) {
+    if (!isDragging) return;
+    e.preventDefault();
+}
+
+function handleMouseUp(e) {
+    if (!isDragging) return;
+    
+    touchEndX = e.clientX;
+    const swipeDistance = touchStartX - touchEndX;
+    const minSwipeDistance = 50;
+    
+    if (Math.abs(swipeDistance) > minSwipeDistance) {
+        if (swipeDistance > 0) {
+            changeImage(1);
+        } else {
+            changeImage(-1);
+        }
+    }
+    
+    isDragging = false;
+}
+
 // Close modal when clicking outside
 document.getElementById('imageModal').addEventListener('click', function(e) {
     if (e.target === this) {
@@ -82,4 +148,22 @@ document.addEventListener('keydown', function(e) {
             changeImage(1);
         }
     }
+});
+
+// Add event listeners when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    const modalImage = document.getElementById('modalImage');
+    
+    // Touch events for mobile
+    modalImage.addEventListener('touchstart', handleTouchStart, { passive: false });
+    modalImage.addEventListener('touchmove', handleTouchMove, { passive: false });
+    modalImage.addEventListener('touchend', handleTouchEnd, { passive: false });
+    
+    // Mouse events for desktop drag
+    modalImage.addEventListener('mousedown', handleMouseDown);
+    modalImage.addEventListener('mousemove', handleMouseMove);
+    modalImage.addEventListener('mouseup', handleMouseUp);
+    modalImage.addEventListener('mouseleave', function() {
+        isDragging = false;
+    });
 });

@@ -10,98 +10,81 @@
     <header>
         <h1>AstroInfo [Archive]</h1>
     </header>
+    
     <main>
         <div class="post-grid">
-            <div class="post">
-                <a href="postpage/post-17.html">
-                    <img src="postimg/post-17/Artboard-1.png" alt="Post-17">
-                </a>
+            <div class="post" onclick="openModal('post-17')">
+                <img src="postimg/post-17/Artboard-1.png" alt="Post-17">
             </div>
-            <div class="post">
-                <a href="postpage/post-16.html">
-                    <img src="postimg/post-16/Artboard-10.png" alt="Post-16">
-                </a>
+            <div class="post" onclick="openModal('post-16')">
+                <img src="postimg/post-16/Artboard-1.png" alt="Post-16">
             </div>
-            <div class="post">
-                <a href="postpage/post-15.html">
-                    <img src="postimg/post-15/Art-1.png" alt="Post-15">
-                </a>
+            <div class="post" onclick="openModal('post-15')">
+                <img src="postimg/post-15/Artboard-1.png" alt="Post-15">
             </div>
-            <div class="post">
-                <a href="postpage/post-14.html">
-                    <img src="postimg/post-14/Artboard-10.png" alt="Post-14">
-                </a>
+            <div class="post" onclick="openModal('post-14')">
+                <img src="postimg/post-14/Artboard-1.png" alt="Post-14">
             </div>
-            <div class="post">
-                <a href="postpage/post-13.html">
-                    <img src="postimg/post-13/Board-1.png" alt="Post-13">
-                </a>
+            <div class="post" onclick="openModal('post-13')">
+                <img src="postimg/post-13/Artboard-1.png" alt="Post-13">
             </div>
-            <div class="post">
-                <a href="postpage/post-12.html">
-                    <img src="postimg/post-12/Slide-1.png" alt="Post-12">
-                </a>
+            <div class="post" onclick="openModal('post-12')">
+                <img src="postimg/post-12/Artboard-1.png" alt="Post-12">
             </div>
-            <div class="post">
-                <a href="postpage/post-11.html">
-                    <img src="postimg/post-11/Artboard-1.png" alt="Post-11">
-                </a>
+            <div class="post" onclick="openModal('post-11')">
+                <img src="postimg/post-11/Artboard-1.png" alt="Post-11">
             </div>
-            <div class="post">
-                <a href="postpage/post-10.html">
-                    <img src="postimg/post-10/Slide-1.png" alt="Post-10">
-                </a>
+            <div class="post" onclick="openModal('post-10')">
+                <img src="postimg/post-10/Artboard-1.png" alt="Post-10">
             </div>
-            <div class="post">
-                <a href="postpage/post-09.html">
-                    <img src="postimg/post-09/Artboard-1.png" alt="Post-09">
-                </a>
+            <div class="post" onclick="openModal('post-09')">
+                <img src="postimg/post-09/Artboard-1.png" alt="Post-09">
             </div>
-            <div class="post">
-                <a href="postpage/post-08.html">
-                    <img src="postimg/post-08/Artboard-1.png" alt="Post-08">
-                </a>
+            <div class="post" onclick="openModal('post-08')">
+                <img src="postimg/post-08/Artboard-1.png" alt="Post-08">
             </div>
-            <div class="post">
-                <a href="postpage/post-07.html">
-                    <img src="postimg/post-07/Artboard-1.png" alt="Post-07">
-                </a>
+            <div class="post" onclick="openModal('post-07')">
+                <img src="postimg/post-07/Artboard-1.png" alt="Post-07">
             </div>
-            <div class="post">
-                <a href="postpage/post-06.html">
-                    <img src="postimg/post-06/Artboard-1.png" alt="Post-06">
-                </a>
+            <div class="post" onclick="openModal('post-06')">
+                <img src="postimg/post-06/Artboard-1.png" alt="Post-06">
             </div>
-            <div class="post">
-                <a href="postpage/post-05.html">
-                    <img src="postimg/post-05/Artboard-1.png" alt="Post-05">
-                </a>
+            <div class="post" onclick="openModal('post-05')">
+                <img src="postimg/post-05/Artboard-1.png" alt="Post-05">
             </div>
-            <div class="post">
-                <a href="postpage/post-04.html">
-                    <img src="postimg/post-04/KILONOVA-1.png" alt="Post-04">
-                </a>
+            <div class="post" onclick="openModal('post-04')">
+                <img src="postimg/post-04/Artboard-1.png" alt="Post-04">
             </div>
-            <div class="post">
-                <a href="postpage/post-03.html">
-                    <img src="postimg/post-03/SUPERNOVA-1.png" alt="Post-03">
-                </a>
+            <div class="post" onclick="openModal('post-03')">
+                <img src="postimg/post-03/Artboard-1.png" alt="Post-03">
             </div>
-            <div class="post">
-                <a href="postpage/post-02.html">
-                    <img src="postimg/post-02/BLACKHOLES-1.png" alt="Post-02">
-                </a>
+            <div class="post" onclick="openModal('post-02')">
+                <img src="postimg/post-02/Artboard-1.png" alt="Post-02">
             </div>
-            <div class="post">
-                <a href="postpage/post-01.html">
-                    <img src="postimg/post-01/EXOPLANETS-1.png" alt="Post-01">
-                </a>
+            <div class="post" onclick="openModal('post-01')">
+                <img src="postimg/post-01/Artboard-1.png" alt="Post-01">
             </div>
         </div>
     </main>
+
+    <!-- Modal for Carousel -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <div class="carousel-container">
+                <button class="carousel-nav prev" onclick="changeImage(-1)">&#8249;</button>
+                <img id="modalImage" class="carousel-image" src="" alt="Magazine Page">
+                <button class="carousel-nav next" onclick="changeImage(1)">&#8250;</button>
+            </div>
+            <div class="carousel-counter">
+                <span id="currentImage">1</span> / <span id="totalImages">1</span>
+            </div>
+        </div>
+    </div>
+
     <footer class="copyright">
         &copy; 2023 NavaneethPK. All rights reserved.
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
